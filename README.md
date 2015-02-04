@@ -1,6 +1,8 @@
 ## initramfs_message
 
 [![Travis CI](http://img.shields.io/travis/ypid/ansible-initramfs_message.svg?style=flat)](http://travis-ci.org/ypid/ansible-initramfs_message)
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.initramfs_message-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2807)
+[![Platforms](http://img.shields.io/badge/platforms-debian-lightgrey.svg?style=flat)](#)
 
 
 Define a message which is shown at boot in the init script (initramfs).
@@ -8,6 +10,17 @@ Define a message which is shown at boot in the init script (initramfs).
 The message should appear shortly after the kernel has mounted the initramfs and starts the init script.
 
 This can be useful to show information (like contact information) from an otherwise completly encrytped system.
+
+### Installation
+
+This role requires at least Ansible `v1.3`. To install it, run:
+
+    ansible-galaxy install ypid.initramfs_message
+
+To install via git, run either:
+
+    git clone https://github.com/ypid/ansible-initramfs_message ypid.initramfs_message
+    git submodule add https://github.com/ypid/ansible-initramfs_message roles/ypid.initramfs_message
 
 
 

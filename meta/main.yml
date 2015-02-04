@@ -13,6 +13,8 @@ galaxy_info:
 dependencies: []
 ansigenome_info:
   github_url: "https://github.com/ypid/ansible-initramfs_message"
+  git_branch: "master"
+  galaxy_id: "2807"
 
   travis: True
 
