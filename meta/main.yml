@@ -1,0 +1,22 @@
+---
+
+galaxy_info:
+  author: Robin Schneider
+  description: Define a message which is shown at boot in the init script (initramfs).
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  categories:
+    - system
+  min_ansible_version: 1.3
+dependencies: []
+ansigenome_info:
+  github_url: "https://github.com/ypid/ansible-initramfs_message"
+
+  travis: True
+
+  synopsis: |
+    The message should appear shortly after the kernel has mounted the initramfs and starts the init script.
+
+    This can be useful to show information (like contact information) from an otherwise completly encrytped system.
