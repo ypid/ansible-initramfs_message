@@ -5,7 +5,7 @@
 [![Platforms](http://img.shields.io/badge/platforms-debian-lightgrey.svg?style=flat)](#)
 
 
-Define a message which is shown at boot in the init script (initramfs).
+Define a message which is shown at boot from the init script (initramfs).
 
 The message should appear shortly after the kernel has mounted the initramfs and starts the init script.
 

@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: Robin Schneider
-  description: Define a message which is shown at boot in the init script (initramfs).
+  description: Define a message which is shown at boot from the init script (initramfs).
   platforms:
   - name: Debian
     versions:
