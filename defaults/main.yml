@@ -3,4 +3,4 @@
 initramfs_message_init_file: "/usr/share/initramfs-tools/init"
 
 # Defines a message which is shown at boot shortly after the kernel has mounted initramfs and starts the init script.
-initramfs_message: "\\n {{ initramfs_message_lang_en }} \\n{{ initramfs_message_lang_de }}\\n"
+initramfs_message: "This message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_file }} and can be changed via Ansible variables."
