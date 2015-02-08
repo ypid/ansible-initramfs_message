@@ -3,7 +3,7 @@
 - name: Set permissions for initramfs init
   file:
     path: "{{ initramfs_message_init_file }}"
-    mode: 0640
+    mode: 0750
     owner: root
     group: root
 
