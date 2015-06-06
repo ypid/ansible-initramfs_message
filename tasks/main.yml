@@ -1,27 +1,25 @@
 ---
 
-- name: Set permissions for initramfs init
-  file:
-    path: "{{ initramfs_message_init_file }}"
+- name: Install initramfs script
+  template:
+    src: initramfs_message.j2
+    dest: "{{ initramfs_message_init_script_filepath }}"
     mode: 0750
     owner: root
     group: root
-
-## Variables in variables defined in host_vasr seem to be problematic for Ansible 1.7. This is a workaround.
-- name: Set initramfs_message
-  set_fact:
-    initramfs_message_expanded: "{{ initramfs_message }}"
-
-- name: Insert message into initramfs
-  lineinfile:
-    dest: "{{ initramfs_message_init_file }}"
-    line: "{{ item }}"
-    insertafter: "#!/bin/sh"
-    backup: yes
-    regexp: "^echo -e .* ## Added by Ansible.$"
-  with_items:
-    - "echo -e '{{ initramfs_message_expanded }}' ## Added by Ansible."
+    validate: 'sh %s'
   register: initramfs_init_script
+
+- name: Get initramfs message
+  command: "{{ initramfs_message_init_script_filepath }}"
+  changed_when: False
+  register: initramfs_init_script_output
+  when: initramfs_init_script|changed
+
+- name: Echo the installed initramfs message (trailing newlines are not shown)
+  debug:
+    msg: "{{ initramfs_init_script_output.stdout_lines }}"
+  when: initramfs_init_script|changed
 
 - name: Recreate initramfs
   shell: update-initramfs -u

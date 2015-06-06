@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PREREQ=""
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case $1 in
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+echo -e "{{ initramfs_message }}"
+
+exit 0

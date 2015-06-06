@@ -31,14 +31,13 @@ List of default variables available in the inventory:
 
     ---
     
-    initramfs_message_init_file: "/usr/share/initramfs-tools/init"
-    
     # Defines a message which is shown at boot shortly after the kernel has mounted initramfs and starts the init script.
-    initramfs_message: "\\nThis message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_file }} and can be changed via Ansible variables.\\n"
+    initramfs_message: "\\nThis message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_script_filepath }} and can be changed via Ansible variables.\\n"
+    
+    
+    initramfs_message_init_script_filepath: "/etc/initramfs-tools/scripts/init-top/initramfs_message"
 
-List of internal variables used by the role:
 
-    initramfs_message_expanded
 
 
 ### Authors and license
