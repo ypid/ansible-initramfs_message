@@ -19,8 +19,8 @@ This role requires at least Ansible `v1.3`. To install it, run:
 
 To install via git, run either:
 
-    git clone https://github.com/ypid/ansible-initramfs_message ypid.initramfs_message
-    git submodule add https://github.com/ypid/ansible-initramfs_message roles/ypid.initramfs_message
+    git clone https://github.com/ypid/ansible-initramfs_message.git ypid.initramfs_message
+    git submodule add https://github.com/ypid/ansible-initramfs_message.git roles/ypid.initramfs_message
 
 
 
@@ -32,7 +32,10 @@ List of default variables available in the inventory:
     ---
     
     # Defines a message which is shown at boot shortly after the kernel has mounted initramfs and starts the init script.
-    initramfs_message: "\\nThis message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_script_filepath }} and can be changed via Ansible variables.\\n"
+    # Each item represents one text part beginning at a new line. An empty item will print an empty line.
+    initramfs_message:
+      - ""
+      - "This message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_script_filepath }} and can be changed via Ansible variables."
     
     
     initramfs_message_init_script_filepath: "/etc/initramfs-tools/scripts/init-top/initramfs_message"

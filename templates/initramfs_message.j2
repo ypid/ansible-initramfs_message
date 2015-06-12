@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PREREQ=""
 prereqs()
@@ -13,6 +13,8 @@ prereqs)
 	;;
 esac
 
-echo -e "{{ initramfs_message }}"
+{% for line in initramfs_message %}
+echo "{{ line }}"
+{% endfor %}
 
 exit 0
