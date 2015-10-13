@@ -2,25 +2,26 @@
 
 - name: Install initramfs script
   template:
-    src: initramfs_message.j2
-    dest: "{{ initramfs_message_init_script_filepath }}"
-    mode: 0750
-    owner: root
-    group: root
+    src: 'initramfs_message.j2'
+    dest: '{{ initramfs_message_init_script_filepath }}'
+    mode: '0750'
+    owner: 'root'
+    group: 'root'
     validate: 'sh %s'
   register: initramfs_init_script
 
 - name: Get initramfs message
-  command: "{{ initramfs_message_init_script_filepath }}"
+  command: '{{ initramfs_message_init_script_filepath }}'
   changed_when: False
   register: initramfs_init_script_output
+  always_run: True
   when: initramfs_init_script|changed
 
-- name: Echo the installed initramfs message (trailing newlines are not shown)
+- name: Show initramfs message during Ansible run (trailing newlines are not shown)
   debug:
-    msg: "{{ initramfs_init_script_output.stdout_lines }}"
-  when: initramfs_init_script|changed
+    msg: '{{ initramfs_init_script_output.stdout_lines }}'
+  when: initramfs_init_script|changed and (initramfs_message_debug|d() | bool)
 
 - name: Recreate initramfs
-  shell: update-initramfs -u
+  command: update-initramfs -u
   when: initramfs_init_script|changed

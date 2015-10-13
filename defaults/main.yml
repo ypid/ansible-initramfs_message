@@ -1,10 +1,23 @@
 ---
 
+# .. envvar:: initramfs_message
+#
 # Defines a message which is shown at boot shortly after the kernel has mounted initramfs and starts the init script.
-# Each item represents one text part beginning at a new line. An empty item will print an empty line.
+# Each item represents one text part beginning at a new line. An empty element will print an empty line.
 initramfs_message:
-  - ""
-  - "This message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_script_filepath }} and can be changed via Ansible variables."
+  - ''
+  - 'This message was added by the Ansible role ypid.initramfs_message to the file {{ initramfs_message_init_script_filepath }} and can be changed via Ansible variables.'
 
 
-initramfs_message_init_script_filepath: "/etc/initramfs-tools/scripts/init-top/initramfs_message"
+# .. envvar:: initramfs_message_init_script_filepath
+#
+# Filepath where the script will be saved to. By default it hooks into the
+# init-top directory to be executed in the beginning of the init script.
+initramfs_message_init_script_filepath: '/etc/initramfs-tools/scripts/init-top/initramfs_message'
+
+
+# .. envvar:: initramfs_message_debug
+#
+# If True, the echo script will be executed during Ansible run and the output
+# will be shown.
+initramfs_message_debug: True
