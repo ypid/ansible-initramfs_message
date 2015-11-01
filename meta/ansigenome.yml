@@ -1,0 +1,22 @@
+---
+
+ansigenome_info:
+  github_url: "https://github.com/ypid/ansible-initramfs_message"
+  git_branch: "master"
+  galaxy_id: "2807"
+
+  travis: True
+
+  license_url: 'https://tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)'
+
+  authors:
+    - name:  'Robin Schneider'
+      url: 'http://ypid.de/'
+      email: 'ypid@riseup.net'
+      twitter: 'ypid'
+      github: 'ypid'
+
+  synopsis: |
+    The message should appear shortly after the kernel has mounted the initramfs and starts the init script.
+
+    This can be useful to show information (like contact information) from an otherwise completely encrypted system.
