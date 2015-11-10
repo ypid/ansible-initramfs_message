@@ -69,6 +69,7 @@ initramfs_message_debug: True
 ### Authors and license
 
 `initramfs_message` role was written by:
+
 - [Robin Schneider](http://ypid.de/) | [e-mail](mailto:ypid@riseup.net) | [Twitter](https://twitter.com/ypid) | [GitHub](https://github.com/ypid)
 
 License: [AGPLv3](https://tldrlegal.com/license/gnu-affero-general-public-license-v3-%28agpl-3.0%29)
