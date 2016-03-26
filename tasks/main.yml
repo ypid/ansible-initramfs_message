@@ -8,20 +8,17 @@
     owner: 'root'
     group: 'root'
     validate: 'sh %s'
-  register: initramfs_init_script
+  register: initramfs_message_register_init_script
+  notify: [ 'Recreate initramfs' ]
 
 - name: Get initramfs message
   command: '{{ initramfs_message_init_script_filepath }}'
   changed_when: False
-  register: initramfs_init_script_output
+  register: initramfs_message_register_init_script_output
   always_run: True
-  when: initramfs_init_script|changed
+  when: initramfs_message_register_init_script|changed
 
 - name: Show initramfs message during Ansible run (trailing newlines are not shown)
   debug:
-    msg: '{{ initramfs_init_script_output.stdout_lines }}'
-  when: initramfs_init_script|changed and (initramfs_message_debug|d() | bool)
-
-- name: Recreate initramfs
-  command: update-initramfs -u
-  when: initramfs_init_script|changed
+    msg: '{{ initramfs_message_register_init_script_output.stdout_lines }}'
+  when: initramfs_message_register_init_script|changed and (initramfs_message_debug|d() | bool)

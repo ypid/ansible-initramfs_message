@@ -1,0 +1,4 @@
+---
+
+- name: Recreate initramfs
+  command: update-initramfs -u
