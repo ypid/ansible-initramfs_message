@@ -15,7 +15,6 @@
   command: '{{ initramfs_message_init_script_filepath }}'
   changed_when: False
   register: initramfs_message_register_init_script_output
-  always_run: True
   when: initramfs_message_register_init_script|changed
 
 - name: Show initramfs message during Ansible run (trailing newlines are not shown)
