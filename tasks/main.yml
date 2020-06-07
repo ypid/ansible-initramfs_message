@@ -15,9 +15,9 @@
   command: '{{ initramfs_message_init_script_filepath }}'
   changed_when: False
   register: initramfs_message_register_init_script_output
-  when: initramfs_message_register_init_script|changed
+  when: initramfs_message_register_init_script is changed
 
 - name: Show initramfs message during Ansible run (trailing newlines are not shown)
   debug:
     msg: '{{ initramfs_message_register_init_script_output.stdout_lines }}'
-  when: initramfs_message_register_init_script|changed and (initramfs_message_debug|d() | bool)
+  when: initramfs_message_register_init_script is changed and (initramfs_message_debug|d() | bool)
